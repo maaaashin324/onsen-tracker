@@ -1,86 +1,101 @@
 # Polyglottal - Learn a New Language
 
-## Learn a New Language
+## Summary
 
-### Objectives
+In this project, you'll be using a new language to build a full-stack app. Your app does NOT need to be web-based.
 
-* Become a proficient independent language learner by learning a new language
+For those who want to work on a webapp, feel free to use JavaScript as your front-end language, but you'll need to build your servers and endpoints in your new language.
+
+At the end of our project period, you'll be presenting what you did and what you learned about your language.
+
+## Objectives
+
+* Become a proficient independent language learner by learning a new computer language!
 * Be able to draw comparisons between JavaScript (or other languages you know) and the new language
-* Learn how to use a new language and create a project
-* Practice teaching others
+* Learn how to use a new language to create a project from scratch
 
 ## Picking a Language
 
-### Requirements
+### Language Requirements
 
-We have a few requirements for the language you choose. Your chosen language MUST fulfill the following requirements:
+We have a few requirements for the language you choose. Your chosen language **MUST** fulfill the following requirements:
 
 * It must be a language you have never used before
 * It must have a [package manager](http://lmgtfy.com/?q=package+manager) (like 'npm' or 'yarn')
-* Language suggestions
+
+Here are some language suggestions. Feel free to choose another language that is not on this list.
+
   * Python
   * Ruby
   * Golang
   * Java
   * Rust
   * Scala
-  * Haskell
+  * Erlang
   * C#
+  
+* You cannot use TypeScript
 
-### Things to Research
+### Questions to Ask
 
 * Is it already installed on your machine? If so, what version?
 * Are there multiple versions of the language? Which is best?
 * Is there an online sandbox for your language? Try it out!
-* Google how to install your favorite version on your OS
+* How to install it?
 * What is it’s package manager? None? Pick a new language.
 * What IDEs are common?
 * What testing suite is most popular?
-* Figure out what website your package manager loads from
-* Figure out what the relevant frameworks are
+* Where does your package manager load dependencies from?
+* What are the most popular frameworks?
 * Does your chosen language have a debugger?
-* Search hacker news and reddit for the most controversial topics.
+* Are there any recent interesting threads or posts on HackerNews about your language?
 
-## Steps
+## Project Steps
 
-* Install the language
-* Install the package manager
-* Build and run “hello world”
-* Find a tutorial or project similar to what you want to build
-* Build and run the project from the command line
-* Pick an IDE and import
-* Figure out how to debug
-* Tear the project down to its core
-* Build it back up in your vision
+### Stage 1
 
-## Project/Research Tips and Suggestions
+1. Install the language
+1. Install the package manager
+1. Find the right IDE and install it
+1. Build and run “hello world”
+
+### Stage 2
+
+1. Find a tutorial or project similar to what you want to build
+1. Build and run the project from the command line
+1. Figure out how to debug
+
+### Stage 3
+
+1. Research how to test your project. We aren't requiring you to write tests for your project in these beginning phases, but you need to know what frameworks are used and how people are testing products built in your language.
+1. Tear the project down to its core
+1. Build it back up in your vision
+
+### Tips and Suggestions [Totally Optional]
 
 * Create an API for quotes! We have provided a `quotes.json` and a `quotes.txt` file for you to use. It is the same one you used when learning Node/Express.
 * Find the ['koans'](https://github.com/mrdavidlaing/javascript-koans) for your chosen language! Koans is a nice, quick way to learn the environment setup, testing framework, and syntax of a new language. Do a quick Google search to find the koans for your language (i.e. 'ruby koans').
 * Find a cheat sheet! While not in-depth, they do help if you need a quick reference.
 * Avoid doing codecademy/prog8---while those are helpful when you are starting with your first language, you should try to 
 
-## Present a Lesson
 
-Create a lesson for your classmates in order to share what you have learned this week.
+## Basic Requirements
 
-### Lesson Objectives
+At the end of the week in Block 1, you will give a presentation on your language and what you did.
 
-* For you: synthesize your learning by creating a lesson for your peers
-* For your audience: become acquainted with the basics of an unfamiliar programming language
-
-### Lesson Requirements
-
-Please plan a lesson that meets the following requirements.
-
-* Slides or other type of presentation.  Please include the following topics in your presentation:
+* Your presentation needs to be 10 minute long.
+* Your presentation should address the following:
+  * Your language's ecosystem (IDEs, dependencies, package managers, community, etc.)
   * Comparison of new language to JavaScript
   * Describe how testing works in the new language
   * Share challenges you experienced while learning the new language
-  * Explain the strengths of the new language and describe what types of projects it is best suited for
+  * Explain the strengths of the new language
+  * Describe what types of projects it is best suited for
   * Anything else that you believe would be beneficial
-* GitHub repository. Create a repository your classmates can clone.  Include:
-    * An installation guide
-    * A simple, working version of the project you created.  Remove any partially completed features.
-    * A list of resources that were helpful to you
-* An activity that allows the class to try out the new language without installing it.  One possibility is to create a short exercise that can be executed in an online environment (like [JSbin](http://jsbin.com/) but for your language)
+* A project README that covers what you did and used. Your README should be easy to understand for someone who wants to work on your project. If you want to see what a good README looks like, check out [this link](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) and [these readmes](https://github.com/matiassingers/awesome-readme).
+* A demo of your app.
+
+## Advanced Requirements
+
+* Test coverage! Write tests for your code in your new language.
+* Have both front-end and back-end in your language.
