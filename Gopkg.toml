@@ -29,7 +29,7 @@
   go-tests = true
   unused-packages = true
 
-[heroku-metadata]
+[metadata.heroku]
   root-package = "github.com/maaaashin324/cc3-project.polyglottal"
   go-version = "go1.10"
   ensure = "false"
