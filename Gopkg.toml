@@ -30,7 +30,7 @@
   unused-packages = true
 
 [heroku-metadata]
-  root-package = "github.com/me/cc3-project.polyglottal"
+  root-package = "github.com/maaaashin324/cc3-project.polyglottal"
   go-version = "go1.10"
   ensure = "false"
   
