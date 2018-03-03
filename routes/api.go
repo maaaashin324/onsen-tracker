@@ -17,6 +17,7 @@ func CreateOnsen(ctx iris.Context) {
 
 	stmt, _ := db.Prepare("INSERT INTO onsen(name, address, rating, createdAt) VALUES (?, ?, ?, ?)")
 	rs, iErr := stmt.Exec(name, address, rating, time.Now())
+	CO.Err(iErr)
 
 	insertID, _ := rs.LastInsertId()
 	resp := map[string]interface{}{
