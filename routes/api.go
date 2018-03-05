@@ -15,7 +15,9 @@ func CreateOnsen(ctx iris.Context) {
 
 	db := CO.DB()
 
-	stmt, _ := db.Prepare("INSERT INTO onsen(name, address, rating, createdAt) VALUES (?, ?, ?, ?)")
+	stmt, sErr := db.Prepare("INSERT INTO onsen(name, address, rating, createdAt) VALUES (?, ?, ?, ?)")
+	CO.Err(sErr)
+
 	rs, iErr := stmt.Exec(name, address, rating, time.Now())
 	CO.Err(iErr)
 
@@ -25,4 +27,18 @@ func CreateOnsen(ctx iris.Context) {
 		"result": "Created Successfully!",
 	}
 	json(ctx, resp)
+}
+
+func SelectOnsen(ctx iris.Context) {
+	db := CO.DB()
+
+	stmt, sErr := db.Prepare("SELECT * FROM onsen ORDER BY id")
+	CO.Err(sErr)
+
+	rows, getErr := stmt.Query()
+	CO.Err(getErr)
+
+	resp := map[string]interface{}{
+		"id": 
+	}
 }
