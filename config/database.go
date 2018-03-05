@@ -1,25 +1,15 @@
 package config
 
 import (
-	"database/sql"
-	"os"
-
-	// for postgres
-	_ "github.com/lib/pq"
+	"github.com/go-pg/migrations"
+	"github.com/go-pg/pg"
 )
 
-// DB function
-func DB() *sql.DB {
-	host := os.Getenv("DATABASE_URL")
-	DATABASE := "onsen_log"
-
-	connStr := "host=" + host + " DATABASE=" + DATABASE
-
-	db, _ := sql.Open("postgres", connStr)
-	err := db.Ping()
-	if err != nil {
-		panic(err)
-	}
-
+// DB function gives you database connection
+func DB() migrations.DB {
+	db := pg.Connect(&pg.Options{
+		User:     "postgres",
+		Database: "onsen",
+	})
 	return db
 }

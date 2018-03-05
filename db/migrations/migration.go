@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"os"
 
+	CO "cc3-project.polyglottal/config"
+
 	"github.com/go-pg/migrations"
-	"github.com/go-pg/pg"
 )
 
 const usageText = `This program runs command on the database. Supported commands are:
@@ -24,10 +25,7 @@ func main() {
 	flag.Usage = usage
 	flag.Parse()
 
-	db := pg.Connect(&pg.Options{
-		User:     "postgres",
-		Database: "onsen",
-	})
+	db := CO.DB()
 
 	oldVersion, newVersion, err := migrations.Run(db, flag.Args()...)
 	if err != nil {
