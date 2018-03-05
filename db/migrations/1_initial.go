@@ -7,8 +7,8 @@ import (
 )
 
 func init() {
-	crtTblSQL := "CREATE TABLE onsen (id serial PRIMARY KEY, name VARCHAR(50) UNIQUE NOT NULL, address VARCHAR(50) UNIQUE NOT NULL)"
-	drpTblSQL := "DROP IF EXISTS onsen"
+	crtTblSQL := "CREATE TABLE onsen (id serial PRIMARY KEY, name VARCHAR(50) UNIQUE NOT NULL, address VARCHAR(100) UNIQUE NOT NULL, rating DECIMAL NOT NULL)"
+	drpTblSQL := "DROP TABLE IF EXISTS onsen"
 
 	migrations.Register(func(db migrations.DB) error {
 		fmt.Printf("Creating table onsen...")

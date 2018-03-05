@@ -14,6 +14,7 @@ const usageText = `This program runs command on the database. Supported commands
 	- down - reverts last migration
 	- reset - reverts all migrations
 	- version - show the current migration version
+	- set_version [version] - sets db version without running migrations.
 
 Usage:
 	go run *.go <command> [args]
