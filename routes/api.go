@@ -1,44 +1,38 @@
 package routes
 
 import (
-	"time"
-
 	CO "cc3-project.polyglottal/config"
 	"github.com/kataras/iris"
 )
 
+// Onsen structure
+type Onsen struct {
+	ID      int
+	Name    string
+	Address string
+	Rating  int
+}
+
 // CreateOnsen function for POST method
 func CreateOnsen(ctx iris.Context) {
-	name := ctx.PostValueTrim("name")
-	address := ctx.PostValueTrim("address")
-	rating := ctx.PostValueTrim("rating")
+
+	_name := ctx.PostValueTrim("name")
+	_address := ctx.PostValueTrim("address")
+	_rating, _ := ctx.PostValueInt("rating")
+	onsen1 := Onsen{
+		Name:    _name,
+		Address: _address,
+		Rating:  _rating,
+	}
 
 	db := CO.DB()
 
-	stmt, sErr := db.Prepare("INSERT INTO onsen(name, address, rating, createdAt) VALUES (?, ?, ?, ?)")
-	CO.Err(sErr)
+	err := db.Insert(&onsen1)
+	CO.Err(err)
 
-	rs, iErr := stmt.Exec(name, address, rating, time.Now())
-	CO.Err(iErr)
-
-	insertID, _ := rs.LastInsertId()
 	resp := map[string]interface{}{
-		"postID": insertID,
+		"postID": onsen1.ID,
 		"result": "Created Successfully!",
 	}
 	json(ctx, resp)
-}
-
-func SelectOnsen(ctx iris.Context) {
-	db := CO.DB()
-
-	stmt, sErr := db.Prepare("SELECT * FROM onsen ORDER BY id")
-	CO.Err(sErr)
-
-	rows, getErr := stmt.Query()
-	CO.Err(getErr)
-
-	resp := map[string]interface{}{
-		"id": 
-	}
 }
