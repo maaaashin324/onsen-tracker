@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 
+	R "cc3-project.polyglottal/routes"
+
 	"github.com/kataras/iris"
 )
 
@@ -19,6 +21,14 @@ func main() {
 		ctx.ViewData("message", "Hello world!")
 		ctx.View("index.html")
 	})
+
+	api := app.Party("/api")
+	{
+		api.Post("/onsens", R.CreateOnsen)
+		api.Get("/onsens", R.SelectOnsen)
+		api.Put("/onsens", R.UpdateOnsen)
+		api.Delete("/onsens", R.DeleteOnsen)
+	}
 
 	app.Run(iris.Addr(":" + port))
 }
