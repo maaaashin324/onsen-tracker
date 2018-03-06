@@ -97,10 +97,21 @@ func UpdateOnsen(ctx iris.Context) {
 	json(ctx, resp)
 }
 
+// DeleteOnsen func for DELETE method
 func DeleteOnsen(ctx iris.Context) {
 	_ID, paramsErr := ctx.Params().GetInt("id")
 	CO.Err(paramsErr)
 
-	db := CO.DB()
+	onsen := CO.Onsen{
+		ID: _ID,
+	}
 
+	db := CO.DB()
+	deleteErr := db.Delete(&onsen)
+	CO.Err(deleteErr)
+
+	resp := map[string]interface{}{
+		"result": "Deleted suceessfully",
+	}
+	json(ctx, resp)
 }
