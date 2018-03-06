@@ -1,2 +1,2 @@
-release: go run ./db/migrations/*.go
+release: migrations up
 web: cc3-project.polyglottal
