@@ -3,16 +3,27 @@ package main
 import (
 	"fmt"
 
+	CO "cc3-project.polyglottal/config"
+
 	"github.com/go-pg/migrations"
 )
 
 func init() {
-	insertSeedsSQL := "INSERT INTO onsen (name, address, rating) VALUES ('Kusatsu', '28 Kusatsu, Kusatsu-machi, Agatsuma-gun, Gunma-ken 377-1711', 5)"
-	truncateSQL := "TRUNCATE onsen"
+	onsen1 := CO.Onsen{
+		Name:    "Kusatsu",
+		Address: "28 Kusatsu, Kusatsu-machi, Agatsuma-gun, Gunma-ken 377-1711",
+		Rating:  5,
+	}
+	onsen2 := CO.Onsen{
+		Name:    "Beppu",
+		Address: "874-0000 Oita Prefecture, Beppu, Motomachi, 16-23",
+		Rating:  5,
+	}
+	truncateSQL := "TRUNCATE onsens"
 
 	migrations.Register(func(db migrations.DB) error {
 		fmt.Printf("Seeding table onsen...")
-		_, err := db.Exec(insertSeedsSQL)
+		err := db.Insert(&onsen1, &onsen2)
 		return err
 	}, func(db migrations.DB) error {
 		fmt.Printf("Truncating table onsen...")

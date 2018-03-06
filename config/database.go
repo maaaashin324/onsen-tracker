@@ -12,3 +12,11 @@ func DB() *pg.DB {
 	})
 	return db
 }
+
+// Onsen structure
+type Onsen struct {
+	ID      int
+	Name    string
+	Address string
+	Rating  int
+}
