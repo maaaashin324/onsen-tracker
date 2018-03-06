@@ -46,6 +46,25 @@
   revision = "97eac295f74b5fbb7fd3113e35f4ccf3c816e389"
 
 [[projects]]
+  name = "github.com/go-pg/migrations"
+  packages = ["."]
+  revision = "56f220c05c9e11f7ca5b06a232e43eda16ce2cde"
+  version = "v6.1.0"
+
+[[projects]]
+  name = "github.com/go-pg/pg"
+  packages = [
+    ".",
+    "internal",
+    "internal/parser",
+    "internal/pool",
+    "orm",
+    "types"
+  ]
+  revision = "62ce1a18dd39eab82c8a3fc1a5b076e59c0a284f"
+  version = "v6.9.6"
+
+[[projects]]
   branch = "master"
   name = "github.com/hashicorp/go-version"
   packages = ["."]
@@ -56,6 +75,12 @@
   name = "github.com/iris-contrib/formBinder"
   packages = ["."]
   revision = "ad9fb86c356f971f30319c40ddbdcf72129a2791"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  revision = "1c35d901db3da928c72a72d8458480cc9ade058f"
 
 [[projects]]
   branch = "master"
@@ -241,6 +266,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a6ac9b92bf350a64c82a6fefb44639b919ec00cfea8f811f2c34e23f0fc87fd5"
+  inputs-digest = "836b6daa2a9d70bff30ea0d03f6024d58b18e533308a96d2347199711dc3d6af"
   solver-name = "gps-cdcl"
   solver-version = 1

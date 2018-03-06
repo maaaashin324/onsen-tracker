@@ -12,7 +12,7 @@ func DB() *pg.DB {
 	if os.Getenv("DATABASE_URL") != "" {
 		_Addr = os.Getenv("DATABASE_URL")
 	} else {
-		_Addr = "localhost"
+		_Addr = "localhost:5432"
 	}
 
 	db := pg.Connect(&pg.Options{
