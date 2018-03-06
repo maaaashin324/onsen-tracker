@@ -11,20 +11,19 @@ func CreateOnsen(ctx iris.Context) {
 	_name := ctx.PostValueTrim("name")
 	_address := ctx.PostValueTrim("address")
 	_rating, _ := ctx.PostValueInt("rating")
-	onsen1 := CO.Onsen{
+	onsen := CO.Onsen{
 		Name:    _name,
 		Address: _address,
 		Rating:  _rating,
 	}
 
 	db := CO.DB()
-
-	err := db.Insert(&onsen1)
+	err := db.Insert(&onsen)
 	CO.Err(err)
 
 	resp := map[string]interface{}{
-		"postID": onsen1.ID,
-		"result": "Created successfully!",
+		"postData": &onsen,
+		"result":   "Created successfully!",
 	}
 	json(ctx, resp)
 }
@@ -34,7 +33,7 @@ func SelectOnsen(ctx iris.Context) {
 	db := CO.DB()
 
 	var onsens []CO.Onsen
-	_, err := db.Query(&onsens, "SELECT * FROM onsen ORDER BY ID")
+	_, err := db.Query(&onsens, "SELECT * FROM onsens ORDER BY ID")
 	CO.Err(err)
 
 	resp := map[string]interface{}{
@@ -92,7 +91,7 @@ func UpdateOnsen(ctx iris.Context) {
 
 	resp := map[string]interface{}{
 		"data":   &onsen,
-		"result": "Selected successfully",
+		"result": "Updated successfully",
 	}
 	json(ctx, resp)
 }

@@ -26,8 +26,9 @@ func main() {
 	{
 		api.Post("/onsens", R.CreateOnsen)
 		api.Get("/onsens", R.SelectOnsen)
-		api.Put("/onsens", R.UpdateOnsen)
-		api.Delete("/onsens", R.DeleteOnsen)
+		api.Get("/onsens/:id", R.SelectOneOnsen)
+		api.Put("/onsens/:id", R.UpdateOnsen)
+		api.Delete("/onsens/:id", R.DeleteOnsen)
 	}
 
 	app.Run(iris.Addr(":" + port))
