@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	CO "cc3-project.polyglottal/config"
+	CO "github.com/maaaashin324/cc3-project.polyglottal/config"
 
 	"github.com/go-pg/migrations"
 )

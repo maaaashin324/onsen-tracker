@@ -1,8 +1,8 @@
 package routes
 
 import (
-	CO "cc3-project.polyglottal/config"
 	"github.com/kataras/iris"
+	CO "github.com/maaaashin324/cc3-project.polyglottal/config"
 )
 
 // CreateOnsen function for POST method
