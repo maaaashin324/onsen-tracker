@@ -1,0 +1,6 @@
+config/
+db/
+node_modules/
+routes/
+vendor/
+view/
