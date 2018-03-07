@@ -15,6 +15,21 @@ module.exports = {
         ],
         loader: 'babel-loader',
       },
+      {
+        test: /\.css$/,
+        include: [
+          path.join(__dirname, './views/assets'),
+        ],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            option: {
+              importLoaders: 1,
+            },
+          },
+        ],
+      },
     ],
   },
   resolove: {
