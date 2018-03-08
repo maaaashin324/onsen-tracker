@@ -36,7 +36,7 @@ export default class List extends Component {
 }
 
 List.propTypes = {
-  onsens: PropTypes.arrayOf(PropTypes.objectOf({
+  onsens: PropTypes.arrayOf(PropTypes.shape({
     ID: PropTypes.number,
     Name: PropTypes.string,
     Address: PropTypes.string,

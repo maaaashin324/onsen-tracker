@@ -10,13 +10,13 @@ const postOnsensFail = response => ({
   response,
 });
 
-const postOnsen = onsen => async (dispatch) => {
+const postOnsen = onsen => dispatch => (async () => {
   const result = await fetchOnsenPost(onsen);
-  
+
   if (!result.response) {
     return dispatch(postOnsensFail(result.error));
   }
   return dispatch(postOnsenSuccess(result.onsens));
-};
+})();
 
 export default postOnsen;
