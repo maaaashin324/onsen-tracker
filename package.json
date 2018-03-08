@@ -11,7 +11,7 @@
     "build": "webpack --mode production"
   },
   "engines": {
-    "node": "=v9.7.1",
+    "node": "=9.7.1",
     "yarn": "=1.5.1"
   },
   "dependencies": {
