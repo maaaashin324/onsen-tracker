@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import List from './containers/List';
 import MyNavbar from './components/MyNavbar';
 import Nomatch from './components/Nomatch';
-import Register from './components/Register';
+import Register from './containers/Register';
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk));
 

@@ -7,14 +7,10 @@ import (
 
 // CreateOnsen function for POST method
 func CreateOnsen(ctx iris.Context) {
+	var onsen CO.Onsen
 
-	_name := ctx.PostValueTrim("name")
-	_address := ctx.PostValueTrim("address")
-	_rating, _ := ctx.PostValueInt("rating")
-	onsen := CO.Onsen{
-		Name:    _name,
-		Address: _address,
-		Rating:  _rating,
+	if err := ctx.ReadJSON(&onsen); err != nil {
+		CO.Err(err)
 	}
 
 	db := CO.DB()

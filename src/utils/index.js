@@ -23,9 +23,9 @@ const fetchOnsenPost = async (onsen) => {
     const response = await (await fetch(onsenAPI, {
       method: 'POST',
       body: JSON.stringify(onsen),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
+      headers: {
+        'content-type': 'application/json',
+      },
     })).json();
 
     return {
