@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Table } from 'react-bootstrap';
 
 export default class List extends Component {
   componentDidMount() {
@@ -10,17 +11,36 @@ export default class List extends Component {
 
   render() {
     return (
-      <ul className="onsenList">
-        {this.props.onsens.map(eachOnsen => <li>{eachOnsen.Name}</li>)}
-      </ul>
+      <Table striped bordered condensed hover className="onsenTable" style={{ marginTop: '100px' }}>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.onsens.map(eachOnsen => (
+            <tr key={eachOnsen.ID}>
+              <td>{eachOnsen.ID}</td>
+              <td>{eachOnsen.Name}</td>
+              <td>{eachOnsen.Address}</td>
+              <td>{eachOnsen.Rating}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     );
   }
 }
 
 List.propTypes = {
   onsens: PropTypes.arrayOf(PropTypes.objectOf({
-    Name: PropTypes.string.isRequired,
-    Address: PropTypes.string.isRequired,
+    ID: PropTypes.number,
+    Name: PropTypes.string,
+    Address: PropTypes.string,
+    Rating: PropTypes.number,
   })).isRequired,
   getOnsensData: PropTypes.func.isRequired,
 };

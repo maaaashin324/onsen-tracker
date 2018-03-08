@@ -1,9 +1,12 @@
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
 
 const Footer = () => (
-  <div className="footer">
-    <small>Copy Right masataka</small>
-  </div>
+  <Navbar fixedBottom inverse>
+    <Navbar.Text>
+      <small>Copy Right masataka</small>
+    </Navbar.Text>
+  </Navbar>
 );
 
 export default Footer;
