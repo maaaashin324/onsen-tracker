@@ -1,4 +1,4 @@
-const { fetchOnsenPost } = require('../utils/index');
+import { fetchOnsenPost } from '../utils/index';
 
 const postOnsenSuccess = onsens => ({
   type: 'POST_ONSEN',
@@ -10,9 +10,9 @@ const postOnsensFail = response => ({
   response,
 });
 
-const postOnsen = async onsen => async (dispatch) => {
+const postOnsen = onsen => async (dispatch) => {
   const result = await fetchOnsenPost(onsen);
-
+  
   if (!result.response) {
     return dispatch(postOnsensFail(result.error));
   }

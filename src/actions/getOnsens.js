@@ -1,4 +1,4 @@
-const { fetchOnsenGet } = require('../utils/index');
+import { fetchOnsenGet } from '../utils/index';
 
 const getOnsensSuccess = onsens => ({
   type: 'GET_ONSEN',
@@ -10,13 +10,14 @@ const getOnsensFail = response => ({
   response,
 });
 
-const getOnsens = () => async (dispatch) => {
+const getOnsens = () => dispatch => (async () => {
   const result = await fetchOnsenGet();
 
   if (!result.response) {
-    return dispatch(getOnsensFail(result.error));
+    dispatch(getOnsensFail(result.error));
+    return;
   }
-  return dispatch(getOnsensSuccess(result.onsens));
-};
+  dispatch(getOnsensSuccess(result.onsens));
+})();
 
 export default getOnsens;

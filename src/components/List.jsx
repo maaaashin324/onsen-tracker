@@ -11,7 +11,7 @@ export default class List extends Component {
   render() {
     return (
       <ul className="onsenList">
-        {this.props.onsens.map(eachOnsen => <li>{eachOnsen.name}</li>)}
+        {this.props.onsens.map(eachOnsen => <li>{eachOnsen.Name}</li>)}
       </ul>
     );
   }
@@ -19,8 +19,8 @@ export default class List extends Component {
 
 List.propTypes = {
   onsens: PropTypes.arrayOf(PropTypes.objectOf({
-    name: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
+    Name: PropTypes.string.isRequired,
+    Address: PropTypes.string.isRequired,
   })).isRequired,
   getOnsensData: PropTypes.func.isRequired,
 };
