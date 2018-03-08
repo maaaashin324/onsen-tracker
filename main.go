@@ -15,8 +15,11 @@ func main() {
 	}
 
 	app := iris.New()
-	app.RegisterView(iris.HTML("./view", ".html"))
 	app.StaticWeb("/", "./view")
+
+	app.Get("/", func(ctx iris.Context) {
+		ctx.ServeFile("./view/index.html", false)
+	})
 
 	api := app.Party("/api")
 	{
