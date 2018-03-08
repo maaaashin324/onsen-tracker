@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Footer from './Footer';
-import List from './List';
+import List from '../containers/List';
 import MyNavbar from './MyNavbar';
 import Nomatch from './Nomatch';
 import Register from './Register';

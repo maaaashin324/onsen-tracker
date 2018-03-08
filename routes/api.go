@@ -23,7 +23,7 @@ func CreateOnsen(ctx iris.Context) {
 
 	resp := map[string]interface{}{
 		"postData": &onsen,
-		"result":   "Created successfully!",
+		"result":   true,
 	}
 	json(ctx, resp)
 }
@@ -38,7 +38,7 @@ func SelectOnsen(ctx iris.Context) {
 
 	resp := map[string]interface{}{
 		"data":   &onsens,
-		"result": "Selected successfully!",
+		"result": true,
 	}
 	json(ctx, resp)
 }
@@ -57,7 +57,7 @@ func SelectOneOnsen(ctx iris.Context) {
 
 	resp := map[string]interface{}{
 		"data":   &onsen,
-		"result": "selected successfully",
+		"result": true,
 	}
 	json(ctx, resp)
 }
@@ -91,7 +91,7 @@ func UpdateOnsen(ctx iris.Context) {
 
 	resp := map[string]interface{}{
 		"data":   &onsen,
-		"result": "Updated successfully",
+		"result": true,
 	}
 	json(ctx, resp)
 }
@@ -110,7 +110,7 @@ func DeleteOnsen(ctx iris.Context) {
 	CO.Err(deleteErr)
 
 	resp := map[string]interface{}{
-		"result": "Deleted suceessfully",
+		"result": true,
 	}
 	json(ctx, resp)
 }
