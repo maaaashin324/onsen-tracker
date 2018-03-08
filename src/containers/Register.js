@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import List from '../components/List';
+import Register from '../components/Register';
 import { postOnsen } from '../actions/index';
 
 const mapStateToProps = state => ({
@@ -10,4 +10,4 @@ const mapDispatchToState = dispatch => ({
   postOnsenData: registeringOnsen => dispatch(postOnsen(registeringOnsen)),
 });
 
-export default connect(mapStateToProps, mapDispatchToState)(List);
+export default connect(mapStateToProps, mapDispatchToState)(Register);
