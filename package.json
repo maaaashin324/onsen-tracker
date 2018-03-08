@@ -8,7 +8,8 @@
   "scripts": {
     "start": "go run main.go",
     "watch": "webpack --watch --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "postinstall": "yarn build"
   },
   "engines": {
     "node": "=9.7.1",
