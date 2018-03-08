@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import visibilityFilter from './visibilityFilter';
+import onsenList from './onsenList';
 
-const reducers = combineReducers({
-  visibilityFilter,
+export default combineReducers({
+  onsenList,
 });
-
-export default reducers;

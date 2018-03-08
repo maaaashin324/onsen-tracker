@@ -16,11 +16,7 @@ func main() {
 
 	app := iris.New()
 	app.RegisterView(iris.HTML("./view", ".html"))
-
-	app.Get("/", func(ctx iris.Context) {
-		ctx.ViewData("message", "Hello world!")
-		ctx.View("index.html")
-	})
+	app.StaticWeb("/", "./view")
 
 	api := app.Party("/api")
 	{

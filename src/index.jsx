@@ -7,6 +7,8 @@ import ReduxThunk from 'redux-thunk';
 
 import { BrowserRouter } from 'react-router-dom';
 
+import 'babel-polyfill';
+
 import reducers from './reducers/index';
 import App from './components/App';
 

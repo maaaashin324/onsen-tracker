@@ -1,7 +1,8 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './',
+  entry: './src',
   output: {
     path: path.join(__dirname, './view'),
     filename: 'bundle.js',
@@ -21,18 +22,13 @@ module.exports = {
           path.join(__dirname, './views/assets'),
         ],
         use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            option: {
-              importLoaders: 1,
-            },
-          },
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
         ],
       },
     ],
   },
-  resolove: {
+  resolve: {
     modules: [
       'node_modules',
       path.join(__dirname, 'src'),

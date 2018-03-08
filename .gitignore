@@ -64,3 +64,4 @@ typings/
 
 # webpack
 view/bundle.js
+view/bundle.js.map
