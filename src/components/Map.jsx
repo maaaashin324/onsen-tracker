@@ -7,23 +7,18 @@ const MyMap = withScriptjs(withGoogleMap(props => (
     defaultZoom={8}
     defaultCenter={{ lat: 35.6811716, lng: 139.7648629 }}
   >
-    {/* {props.positions.map(eachPosition => (<Marker position={{ eachPosition }} />))} */}
+    {props.onsens.map(eachOnsen =>
+      (<Marker
+        key={eachOnsen.ID}
+        position={{ lat: +eachOnsen.Latitude, lng: +eachOnsen.Longitude }}
+      />))}
   </GoogleMap>
 )));
 
 export default class Map extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      onsens: [],
-    };
-  }
-
   componentDidMount() {
-    // if (this.state.onsens.length === 0) {
-    //   this.props.getOnsensData();
-    // }
+    this.props.getOnsensData();
+    console.log(Array.isArray(this.props.onsens));
   }
 
   render() {
@@ -33,7 +28,12 @@ export default class Map extends Component {
         loadingElement={<div style={{ height: '100%' }} />}
         containerElement={<div style={{ height: '800px' }} />}
         mapElement={<div style={{ height: '100%' }} />}
+        onsens={this.props.onsens}
       />
     );
   }
 }
+
+Map.propTypes = {
+  getOnsensData: PropTypes.func.isRequired,
+};

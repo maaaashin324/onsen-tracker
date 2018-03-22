@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getOnsensData: () => dispatch(getOnsens),
+  getOnsensData: () => dispatch(getOnsens()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
