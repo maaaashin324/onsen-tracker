@@ -38,15 +38,10 @@ func DB() *pg.DB {
 
 // Onsen structure
 type Onsen struct {
-	ID      int
-	Name    string
-	Address string
-	Rating  int
-	Position
-}
-
-// Position structure
-type Position struct {
+	ID        int
+	Name      string
+	Address   string
+	Rating    int
 	Latitude  float64
 	Longitude float64
 }
