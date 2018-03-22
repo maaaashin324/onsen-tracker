@@ -42,4 +42,11 @@ type Onsen struct {
 	Name    string
 	Address string
 	Rating  int
+	Position
+}
+
+// Position structure
+type Position struct {
+	Latitude  float32
+	Longitude float32
 }

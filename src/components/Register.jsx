@@ -14,39 +14,46 @@ const Register = ({ postOnsenData }) => {
     postOnsenData(onsen);
   };
 
+  const getCurrentView = () => {
+
+  };
+
   return (
-    <Form horizontal onSubmit={handleSubmit} style={{ marginTop: '100px' }}>
-      <FormGroup controlId="formHorizontalName">
-        <Col componentClass={ControlLabel} sm={2}>
-          Name
-        </Col>
-        <Col sm={6}>
-          <FormControl type="text" placeholder="Fill in Onsen name" />
-        </Col>
-      </FormGroup>
+    <div className="register">
+      {getCurrentView}
+      <Form horizontal onSubmit={handleSubmit} style={{ marginTop: '100px' }}>
+        <FormGroup controlId="formHorizontalName">
+          <Col componentClass={ControlLabel} sm={2}>
+            Name
+          </Col>
+          <Col sm={6}>
+            <FormControl type="text" placeholder="Fill in Onsen name" />
+          </Col>
+        </FormGroup>
 
-      <FormGroup controlId="formHorizontalAddress">
-        <Col componentClass={ControlLabel} sm={2}>
-          Address
-        </Col>
-        <Col sm={6}>
-          <FormControl type="text" placeholder="Fill in Onsen address" />
-        </Col>
-      </FormGroup>
+        <FormGroup controlId="formHorizontalAddress">
+          <Col componentClass={ControlLabel} sm={2}>
+            Address
+          </Col>
+          <Col sm={6}>
+            <FormControl type="text" placeholder="Fill in Onsen address" />
+          </Col>
+        </FormGroup>
 
-      <FormGroup controlId="formHorizontalRating">
-        <Col componentClass={ControlLabel} sm={2}>
-          Rating
-        </Col>
-        <Col sm={4}>
-          <FormControl type="text" placeholder="Fill in Onsen Rating" />
-        </Col>
-      </FormGroup>
+        <FormGroup controlId="formHorizontalRating">
+          <Col componentClass={ControlLabel} sm={2}>
+            Rating
+          </Col>
+          <Col sm={4}>
+            <FormControl type="text" placeholder="Fill in Onsen Rating" />
+          </Col>
+        </FormGroup>
 
-      <Col smOffset={2} sm={10}>
-        <Button type="submit">Submit</Button>
-      </Col>
-    </Form>
+        <Col smOffset={2} sm={10}>
+          <Button type="submit">Submit</Button>
+        </Col>
+      </Form>
+    </div>
   );
 };
 

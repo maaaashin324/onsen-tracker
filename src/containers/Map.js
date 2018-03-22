@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import List from '../components/List';
+import Map from '../components/Map';
 import { getOnsens } from '../actions/index';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getOnsensData: () => dispatch(getOnsens()),
+  getOnsensData: () => dispatch(getOnsens),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(Map);

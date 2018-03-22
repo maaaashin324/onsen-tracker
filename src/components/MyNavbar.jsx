@@ -14,6 +14,11 @@ const MyNavbar = () => (
     <Nav>
       <LinkContainer to="/">
         <NavItem eventKey={1}>
+          Map
+        </NavItem>
+      </LinkContainer>
+      <LinkContainer to="/list">
+        <NavItem eventKey={1}>
           List
         </NavItem>
       </LinkContainer>

@@ -12,7 +12,7 @@
     "postinstall": "yarn build"
   },
   "engines": {
-    "node": "=9.7.1",
+    "node": ">=9.7.1",
     "yarn": "=1.5.1"
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",

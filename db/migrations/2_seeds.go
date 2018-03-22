@@ -13,11 +13,19 @@ func init() {
 		Name:    "Kusatsu",
 		Address: "28 Kusatsu, Kusatsu-machi, Agatsuma-gun, Gunma-ken 377-1711",
 		Rating:  5,
+		Position: CO.Position{
+			Latitude:  36.6228396,
+			Longitude: 138.5945222,
+		},
 	}
 	onsen2 := CO.Onsen{
 		Name:    "Beppu",
 		Address: "874-0000 Oita Prefecture, Beppu, Motomachi, 16-23",
 		Rating:  5,
+		Position: CO.Position{
+			Latitude:  33.2774601,
+			Longitude: 131.5038007,
+		},
 	}
 	truncateSQL := "TRUNCATE onsens"
 
