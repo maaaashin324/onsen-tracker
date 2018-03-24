@@ -34,7 +34,6 @@ export default class Map extends Component {
   }
 
   render() {
-    console.log(process.env.GOOGLEMAPAPIKEY);
     return (
       <MyMap
         containerElement={<div style={{ height: '800px' }} />}

@@ -45,6 +45,8 @@ module.exports = {
   context: __dirname,
   target: 'web',
   plugins: [
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
   ],
 };
