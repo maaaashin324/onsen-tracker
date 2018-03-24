@@ -12,12 +12,17 @@ const getOnsensFail = response => ({
 
 const getOnsens = () => dispatch => (async () => {
   const result = await fetchOnsenGet();
+  const onsens = result.onsens.map((eachOnsen) => {
+    const newObject = Object.assign({}, eachOnsen);
+    newObject.infoWindow = false;
+    return newObject;
+  });
 
   if (!result.response) {
     dispatch(getOnsensFail(result.error));
     return;
   }
-  dispatch(getOnsensSuccess(result.onsens));
+  dispatch(getOnsensSuccess(onsens));
 })();
 
 export default getOnsens;

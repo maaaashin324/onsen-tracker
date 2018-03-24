@@ -25,6 +25,16 @@ export default function onsenList(state = defaultState, action) {
       newState.response = action.response;
       return newState;
     }
+    case 'TOGGLE': {
+      const newState = Object.assign({}, state);
+      const newStateOnsens = [...newState.onsens];
+
+      const previousStatus = newStateOnsens[action.index].infoWindow;
+      newStateOnsens[action.index].infoWindow = !previousStatus;
+      newState.onsens = newStateOnsens;
+
+      return newState;
+    }
     default: return state;
   }
 }
