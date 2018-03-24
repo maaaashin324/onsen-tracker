@@ -34,12 +34,13 @@ export default class Map extends Component {
   }
 
   render() {
+    console.log(process.env.GOOGLEMAPAPIKEY);
     return (
       <MyMap
         containerElement={<div style={{ height: '800px' }} />}
         loadingElement={<div style={{ height: '100%' }} />}
         mapElement={<div style={{ height: '100%' }} />}
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GOOGLEMAPAPIKEY}`}
         onsens={this.props.onsens}
         onMarkerToggle={this.props.toggleOnsenInfoWindow}
       />
