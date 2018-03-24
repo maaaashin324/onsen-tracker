@@ -15,7 +15,10 @@ const MyMap = withScriptjs(withGoogleMap(props => (
       >
         {props.isMarkerToggle &&
           <InfoWindow onCloseClick={props.onMarkerToggle}>
-            <p>Hello</p>
+            <div>
+              <p>{eachOnsen.Name}</p>
+              <p>{eachOnsen.Address}</p>
+            </div>
           </InfoWindow>
         }
       </Marker>
