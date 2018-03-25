@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl, Col, Button, ControlLabel, Modal } from 'react-bootstrap';
 
-const Register = ({ postOnsenData, toggleModal, onToggleModal, modalMessage }) => {
+const Register = ({
+  postOnsenData,
+  toggleModal,
+  onToggleModal,
+  modalMessage,
+}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
