@@ -12,7 +12,7 @@ import 'babel-polyfill';
 import reducers from './reducers/index';
 
 import Footer from './components/Footer';
-import Map from './containers/Map';
+import Homepage from './components/Homepage';
 import List from './containers/List';
 import MyNavbar from './components/MyNavbar';
 import Nomatch from './components/Nomatch';
@@ -26,7 +26,7 @@ render(
       <div>
         <MyNavbar />
         <Switch>
-          <Route exact path="/" component={Map} />
+          <Route exact path="/" component={Homepage} />
           <Route exact path="/list" component={List} />
           <Route path="/register" component={Register} />
           <Route component={Nomatch} />
