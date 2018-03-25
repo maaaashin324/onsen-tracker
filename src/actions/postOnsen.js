@@ -1,4 +1,4 @@
-import { fetchOnsenPost } from '../utils/index';
+import { fetchOnsenGet, fetchOnsenPost } from '../utils/index';
 
 const postOnsenSuccess = onsens => ({
   type: 'POST_ONSEN',
@@ -11,12 +11,23 @@ const postOnsensFail = response => ({
 });
 
 const postOnsen = onsen => dispatch => (async () => {
-  const result = await fetchOnsenPost(onsen);
+  const postResult = await fetchOnsenPost(onsen);
 
-  if (!result.response) {
-    return dispatch(postOnsensFail(result.error));
+  if (!postResult.response) {
+    dispatch(postOnsensFail(postResult.error));
   }
-  return dispatch(postOnsenSuccess(result.onsens));
+
+  const reGetResult = await fetchOnsenGet();
+  const onsens = reGetResult.onsens.map((eachOnsen) => {
+    const newObject = Object.assign({}, eachOnsen);
+    newObject.infoWindow = false;
+    return newObject;
+  });
+
+  if (!reGetResult.response) {
+    dispatch(postOnsensFail(reGetResult.error));
+  }
+  dispatch(postOnsenSuccess(onsens));
 })();
 
 export default postOnsen;

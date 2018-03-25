@@ -7,9 +7,9 @@ const Register = ({ postOnsenData }) => {
     e.preventDefault();
 
     const onsen = {
-      name: e.target[0].value,
-      address: e.target[1].value,
-      rating: +e.target[2].value,
+      Name: e.target[0].value,
+      Address: e.target[1].value,
+      Rating: +e.target[2].value,
     };
     postOnsenData(onsen);
   };
