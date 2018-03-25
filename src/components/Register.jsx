@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, FormGroup, FormControl, Col, Button, ControlLabel } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Col, Button, ControlLabel, Modal } from 'react-bootstrap';
 
-const Register = ({ postOnsenData }) => {
+const Register = ({ postOnsenData, toggleModal, onToggleModal, modalMessage }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -14,13 +14,34 @@ const Register = ({ postOnsenData }) => {
     postOnsenData(onsen);
   };
 
-  const getCurrentView = () => {
-
+  const handleClose = (e) => {
+    e.preventDefault();
+    toggleModal();
   };
 
   return (
     <div className="register">
-      {getCurrentView}
+
+      <Modal
+        onHide={handleClose}
+        show={onToggleModal}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Finish</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>{modalMessage}</Modal.Body>
+
+        <Modal.Footer>
+          <Button
+            bsStyle="primary"
+            onClick={handleClose}
+          >
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Form horizontal onSubmit={handleSubmit} style={{ marginTop: '100px' }}>
         <FormGroup controlId="formHorizontalName">
           <Col componentClass={ControlLabel} sm={2}>
@@ -59,6 +80,9 @@ const Register = ({ postOnsenData }) => {
 
 Register.propTypes = {
   postOnsenData: PropTypes.func.isRequired,
+  onToggleModal: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  modalMessage: PropTypes.string.isRequired,
 };
 
 export default Register;
