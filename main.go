@@ -15,6 +15,7 @@ func main() {
 	}
 
 	app := iris.New()
+	app.Favicon("./view/assets/image/onsenIcon.ico")
 	app.StaticWeb("/", "./view")
 
 	app.Get("/", func(ctx iris.Context) {
