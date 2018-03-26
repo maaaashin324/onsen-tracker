@@ -36,7 +36,7 @@ export default class Map extends Component {
   render() {
     return (
       <MyMap
-        containerElement={<div style={{ height: '800px' }} />}
+        containerElement={<div style={{ height: '800px', marginBottom: '50px' }} />}
         loadingElement={<div style={{ height: '100%' }} />}
         mapElement={<div style={{ height: '100%' }} />}
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GOOGLEMAPAPIKEY}`}

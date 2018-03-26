@@ -50,7 +50,7 @@ const Heading = ({ enableFilter }) => {
   return (
     <Grid className="district-table">
       {japanDistrict.map(eachRow => (
-        <Row className="show-grid">
+        <Row className="district-table-row">
           {eachRow.map(eachDistrict => (
             <Col xs={6} md={4}>
               <img
