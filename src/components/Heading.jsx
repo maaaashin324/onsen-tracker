@@ -50,28 +50,28 @@ const Heading = ({ enableFilter }) => {
   return (
     <Grid className="district-table">
       {japanDistrict.map(eachRow => (
-        <Row className="district-table-row">
-          {eachRow.map(eachDistrict => (
-            <Col xs={6} md={4}>
-              <img
-                className="rounded-circle"
-                src={`assets/image/${eachDistrict.image}`}
-                alt="each district"
-                width="140px"
-                height="140px"
-              />
-              <h2>{eachDistrict.name}</h2>
-              <p>{eachDistrict.name}</p>
-              <p>
+        <div>
+          <Row>
+            {eachRow.map(eachDistrict => (
+              <Col md={4} className="district-column">
+                <h2>{eachDistrict.name}</h2>
+                <img
+                  className="district-image"
+                  src={`assets/image/${eachDistrict.image}`}
+                  alt="each district"
+                />
+                <p className="district-paragraph" />
                 <Button
+                  className="district-button"
                   onClick={handleButton}
                 >
                   Filter!
                 </Button>
-              </p>
-            </Col>
-          ))}
-        </Row>
+              </Col>
+            ))}
+          </Row>
+          <hr className="district-table-horizon" />
+        </div>
       ))}
     </Grid>
   );

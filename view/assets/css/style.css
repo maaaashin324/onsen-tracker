@@ -6,9 +6,25 @@
   margin-bottom: 100px;
 }
 
-.rounded-circle {
-  height: 140px;
-  width: 140px;
+.district-column {
+  text-align: center;
+}
+
+.district-image {
+  height: 120px;
+  width: auto;
+}
+
+.district-paragraph {
+  margin-bottom: 30px;
+}
+
+.district-table-horizon {
+  margin: 50px auto;
+}
+
+.district-button {
+  vertical-align: bottom;
 }
 
 @media screen and (max-width: 768px) {
