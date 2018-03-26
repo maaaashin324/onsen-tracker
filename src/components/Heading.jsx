@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 
-const Heading = ({ enableFilter }) => {
+const Heading = ({ getOnsensDataWithFilter }) => {
   const Hokkaido = {
     name: 'Hokkaido',
     image: 'map-hokkaido.png',
@@ -12,8 +12,8 @@ const Heading = ({ enableFilter }) => {
     image: 'map-tohoku.png',
   };
   const Kantou = {
-    name: 'Kanto',
-    image: 'map-kanto.png',
+    name: 'Kantou',
+    image: 'map-kantou.png',
   };
   const Chubu = {
     name: 'Chubu',
@@ -44,7 +44,7 @@ const Heading = ({ enableFilter }) => {
   const handleButton = (e) => {
     e.preventDefault();
 
-    enableFilter();
+    getOnsensDataWithFilter(e.target.value);
   };
 
   return (
@@ -63,6 +63,7 @@ const Heading = ({ enableFilter }) => {
                 <p className="district-paragraph" />
                 <Button
                   className="district-button"
+                  value={eachDistrict.name}
                   onClick={handleButton}
                 >
                   Filter!
@@ -78,7 +79,7 @@ const Heading = ({ enableFilter }) => {
 };
 
 Heading.propTypes = {
-  enableFilter: PropTypes.func.isRequired,
+  getOnsensDataWithFilter: PropTypes.func.isRequired,
 };
 
 export default Heading;

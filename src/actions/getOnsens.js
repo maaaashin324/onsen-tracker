@@ -10,8 +10,9 @@ const getOnsensFail = response => ({
   response,
 });
 
-const getOnsens = () => dispatch => (async () => {
-  const result = await fetchOnsenGet();
+const getOnsens = filter => dispatch => (async () => {
+  const result = await fetchOnsenGet(filter);
+
   const onsens = result.onsens.map((eachOnsen) => {
     const newObject = Object.assign({}, eachOnsen);
     newObject.infoWindow = false;

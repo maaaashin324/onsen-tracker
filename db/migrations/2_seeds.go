@@ -12,6 +12,7 @@ func init() {
 	onsen1 := CO.Onsen{
 		Name:      "Kusatsu",
 		Address:   "28 Kusatsu, Kusatsu-machi, Agatsuma-gun, Gunma-ken 377-1711",
+		District:  "Kantou",
 		Rating:    5,
 		Latitude:  36.6228396,
 		Longitude: 138.5945222,
@@ -19,6 +20,7 @@ func init() {
 	onsen2 := CO.Onsen{
 		Name:      "Beppu",
 		Address:   "874-0000 Oita Prefecture, Beppu, Motomachi, 16-23",
+		District:  "Kyushu",
 		Rating:    5,
 		Latitude:  33.2774601,
 		Longitude: 131.5038007,

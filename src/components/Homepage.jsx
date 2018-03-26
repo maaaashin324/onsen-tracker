@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../containers/Map';
-import Heading from '../components/Heading';
+import Heading from '../containers/Heading';
 
 const Homepage = () => (
   <div className="home-contents">

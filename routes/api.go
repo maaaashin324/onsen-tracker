@@ -26,10 +26,17 @@ func CreateOnsen(ctx iris.Context) {
 
 // SelectOnsen func for GET method
 func SelectOnsen(ctx iris.Context) {
-	db := CO.DB()
+	districtParam := ctx.URLParam("district")
 
 	var onsens []CO.Onsen
-	_, err := db.Query(&onsens, "SELECT * FROM onsens ORDER BY ID")
+	var err error
+
+	db := CO.DB()
+	if districtParam == "" {
+		err = db.Model(&onsens).Order("id").Select()
+	} else {
+		err = db.Model(&onsens).Where("district = ?", districtParam).Order("id").Select()
+	}
 	CO.Err(err)
 
 	resp := map[string]interface{}{
@@ -47,6 +54,7 @@ func SelectOneOnsen(ctx iris.Context) {
 	onsen := CO.Onsen{
 		ID: _ID,
 	}
+
 	db := CO.DB()
 	selectErr := db.Select(&onsen)
 	CO.Err(selectErr)

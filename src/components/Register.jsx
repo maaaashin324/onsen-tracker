@@ -8,13 +8,25 @@ const Register = ({
   onToggleModal,
   modalMessage,
 }) => {
+  const district = [
+    'Hokkaido',
+    'Tohoku',
+    'Kantou',
+    'Chubu',
+    'Kinki',
+    'Chugoku',
+    'Shikoku',
+    'Kyushu',
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const onsen = {
       Name: e.target[0].value,
       Address: e.target[1].value,
-      Rating: +e.target[2].value,
+      District: e.target[2].value,
+      Rating: +e.target[3].value,
     };
     postOnsenData(onsen);
   };
@@ -63,6 +75,17 @@ const Register = ({
           </Col>
           <Col sm={6}>
             <FormControl type="text" placeholder="Fill in Onsen address" />
+          </Col>
+        </FormGroup>
+
+        <FormGroup controlId="formHorizontalDistrict">
+          <Col componentClass={ControlLabel} sm={2}>
+            District
+          </Col>
+          <Col sm={6}>
+            <FormControl componentClass="select" placeholder="Select district">
+              {district.map(eachDistrict => <option value={eachDistrict}>{eachDistrict}</option>)}
+            </FormControl>
           </Col>
         </FormGroup>
 
