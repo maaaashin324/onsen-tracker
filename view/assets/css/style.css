@@ -1,3 +1,28 @@
+.site-title {
+  margin-bottom: 0;
+  padding-top: 5px;
+}
+
+.site-title a::before {
+  content: "";
+  background: url("../image/onsenIcon@2x.svg") no-repeat;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 12px;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.site-title a {
+  color: #555;
+  text-decoration: none;
+}
+
+.site-title:hover {
+  text-decoration: none;
+}
+
 .home-contents {
   margin-top: 50px;
 }

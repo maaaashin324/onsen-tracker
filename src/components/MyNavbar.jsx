@@ -3,11 +3,13 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const MyNavbar = () => (
-  <Navbar fixedTop inverse>
+  <Navbar fixedTop>
     <Navbar.Header>
       <LinkContainer to="/">
         <Navbar.Brand>
-          Onsen Log
+          <p className="site-title">
+            <a href="/">Onsen Log</a>
+          </p>
         </Navbar.Brand>
       </LinkContainer>
     </Navbar.Header>
@@ -18,12 +20,12 @@ const MyNavbar = () => (
         </NavItem>
       </LinkContainer>
       <LinkContainer to="/list">
-        <NavItem eventKey={1}>
+        <NavItem eventKey={2}>
           List
         </NavItem>
       </LinkContainer>
       <LinkContainer to="/register">
-        <NavItem eventKey={2}>
+        <NavItem eventKey={3}>
           Register
         </NavItem>
       </LinkContainer>
