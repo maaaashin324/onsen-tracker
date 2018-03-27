@@ -40,7 +40,7 @@ func SelectOnsen(ctx iris.Context) {
 	CO.Err(err)
 
 	resp := map[string]interface{}{
-		"data":   &onsens,
+		"data":   onsens,
 		"result": true,
 	}
 	json(ctx, resp)
