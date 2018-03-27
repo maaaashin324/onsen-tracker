@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getOnsensData: () => dispatch(getOnsens()),
+  getOnsensData: filter => dispatch(getOnsens(filter)),
   toggleOnsenInfoWindow: index => dispatch(toggleInfoWindow(index)),
 });
 

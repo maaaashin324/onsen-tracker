@@ -4,7 +4,7 @@ const fetchOnsenGet = async (district) => {
   try {
     let url = onsenAPI;
 
-    if (district !== undefined && district !== 'Japan') {
+    if (district !== 'Japan') {
       url += `?district=${district}`;
     }
 

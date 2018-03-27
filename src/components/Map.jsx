@@ -6,6 +6,8 @@ const MyMap = withScriptjs(withGoogleMap(props => (
   <GoogleMap
     defaultZoom={props.zoom}
     defaultCenter={props.center}
+    zoom={props.zoom}
+    center={props.center}
   >
     {props.onsens.length !== 0 && props.onsens.map((eachOnsen, index) => (
       <Marker
@@ -29,7 +31,7 @@ const MyMap = withScriptjs(withGoogleMap(props => (
 export default class Map extends Component {
   componentDidMount() {
     if (this.props.onsens.length === 0) {
-      this.props.getOnsensData();
+      this.props.getOnsensData('Japan');
     }
   }
 

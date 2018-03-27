@@ -1,7 +1,8 @@
 import { fetchOnsenGet } from '../utils/index';
 
-const getOnsensSuccess = onsens => ({
+const getOnsensSuccess = (onsens, filter) => ({
   type: 'GET_ONSEN',
+  filter,
   onsens,
 });
 
@@ -25,7 +26,7 @@ const getOnsens = filter => dispatch => (async () => {
     dispatch(getOnsensFail(result.error));
     return;
   }
-  dispatch(getOnsensSuccess(onsens));
+  dispatch(getOnsensSuccess(onsens, filter));
 })();
 
 export default getOnsens;
