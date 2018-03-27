@@ -8,7 +8,7 @@ export default function onsenForm(state = defaultState, action) {
     case 'POST_ONSEN': {
       const newState = Object.assign({}, state);
       newState.onToggleModal = true;
-      newState.message = 'Successfully your favorite onsen was registered.';
+      newState.message = 'Your favorite onsen was successfully registered.';
       return newState;
     }
     case 'FAIL_POST_ONSEN': {
