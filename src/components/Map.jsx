@@ -12,6 +12,7 @@ const MyMap = withScriptjs(withGoogleMap(props => (
     {props.onsens.length !== 0 && props.onsens.map((eachOnsen, index) => (
       <Marker
         key={eachOnsen.ID}
+        defaultIcon="./assets/image/redIcon/onsenIconMarker.svg"
         position={{ lat: +eachOnsen.Latitude, lng: +eachOnsen.Longitude }}
         onClick={props.onMarkerToggle(index)}
       >
