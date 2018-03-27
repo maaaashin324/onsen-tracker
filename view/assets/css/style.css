@@ -5,7 +5,7 @@
 
 .site-title a::before {
   content: "";
-  background: url("../image/onsenIcon@2x.svg") no-repeat;
+  background: url("../image/redIcon/onsenIconRed.svg") no-repeat;
   width: 40px;
   height: 40px;
   display: inline-block;
