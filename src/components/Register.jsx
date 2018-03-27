@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl, Col, Button, ControlLabel, Modal } from 'react-bootstrap';
+import japanData from '../utils/japanData';
 
 const Register = ({
   postOnsenData,
@@ -8,17 +9,6 @@ const Register = ({
   onToggleModal,
   modalMessage,
 }) => {
-  const district = [
-    'Hokkaido',
-    'Tohoku',
-    'Kantou',
-    'Chubu',
-    'Kinki',
-    'Chugoku',
-    'Shikoku',
-    'Kyushu',
-  ];
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -84,7 +74,8 @@ const Register = ({
           </Col>
           <Col sm={6}>
             <FormControl componentClass="select" placeholder="Select district">
-              {district.map(eachDistrict => <option value={eachDistrict}>{eachDistrict}</option>)}
+              {Object.values(japanData).map(eachDistrict =>
+                <option value={eachDistrict.name}>{eachDistrict.name}</option>)}
             </FormControl>
           </Col>
         </FormGroup>
