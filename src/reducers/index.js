@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import onsenList from './onsenList';
 import onsenForm from './onsenForm';
+import onsenList from './onsenList';
+import onsenMap from './onsenMap';
 
 export default combineReducers({
-  onsenList,
   onsenForm,
+  onsenList,
+  onsenMap,
 });

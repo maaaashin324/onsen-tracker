@@ -4,8 +4,8 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from 'reac
 
 const MyMap = withScriptjs(withGoogleMap(props => (
   <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: 35.6811716, lng: 139.7648629 }}
+    defaultZoom={props.zoom}
+    defaultCenter={props.center}
   >
     {props.onsens.length !== 0 && props.onsens.map((eachOnsen, index) => (
       <Marker
@@ -42,6 +42,8 @@ export default class Map extends Component {
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GOOGLEMAPAPIKEY}`}
         onsens={this.props.onsens}
         onMarkerToggle={this.props.toggleOnsenInfoWindow}
+        center={this.props.center}
+        zoom={this.props.zoom}
       />
     );
   }
@@ -51,4 +53,6 @@ Map.propTypes = {
   getOnsensData: PropTypes.func.isRequired,
   onsens: PropTypes.arrayOf(PropTypes.object).isRequired,
   toggleOnsenInfoWindow: PropTypes.func.isRequired,
+  center: PropTypes.objectOf(PropTypes.number).isRequired,
+  zoom: PropTypes.number.isRequired,
 };

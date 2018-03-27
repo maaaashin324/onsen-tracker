@@ -4,6 +4,8 @@ import { getOnsens, toggleInfoWindow } from '../actions/index';
 
 const mapStateToProps = state => ({
   onsens: state.onsenList.onsens,
+  center: state.onsenMap.center,
+  zoom: state.onsenMap.zoom,
 });
 
 const mapDispatchToProps = dispatch => ({

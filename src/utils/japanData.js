@@ -34,6 +34,10 @@ const japanData = {
   Japan: {
     name: 'Japan',
     image: 'map-japan.png',
+    center: {
+      lat: 38.4651934,
+      lng: 134.3899096,
+    },
   },
 };
 
