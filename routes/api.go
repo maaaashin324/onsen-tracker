@@ -18,7 +18,7 @@ func CreateOnsen(ctx iris.Context) {
 	CO.Err(err)
 
 	resp := map[string]interface{}{
-		"postData": &onsen,
+		"postData": onsen,
 		"result":   true,
 	}
 	json(ctx, resp)
@@ -60,7 +60,7 @@ func SelectOneOnsen(ctx iris.Context) {
 	CO.Err(selectErr)
 
 	resp := map[string]interface{}{
-		"data":   &onsen,
+		"data":   onsen,
 		"result": true,
 	}
 	json(ctx, resp)
@@ -94,7 +94,7 @@ func UpdateOnsen(ctx iris.Context) {
 	CO.Err(checkSelectErr)
 
 	resp := map[string]interface{}{
-		"data":   &onsen,
+		"data":   onsen,
 		"result": true,
 	}
 	json(ctx, resp)

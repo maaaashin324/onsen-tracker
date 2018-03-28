@@ -17,7 +17,7 @@ const postOnsen = onsen => dispatch => (async () => {
     dispatch(postOnsensFail(postResult.error));
   }
 
-  const reGetResult = await fetchOnsenGet();
+  const reGetResult = await fetchOnsenGet('Japan');
   const onsens = reGetResult.onsens.map((eachOnsen) => {
     const newObject = Object.assign({}, eachOnsen);
     newObject.infoWindow = false;
