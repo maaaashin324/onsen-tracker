@@ -4,10 +4,19 @@ import { Button, Grid, Row, Col } from 'react-bootstrap';
 import japanData from '../utils/japanData';
 
 const Heading = ({ getOnsensDataWithFilter }) => {
+  const scrollToTop = () => {
+    window.scrollBy({
+      top: -10000,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const handleButton = (e) => {
     e.preventDefault();
 
     getOnsensDataWithFilter(e.target.value);
+    scrollToTop();
   };
 
   return (
