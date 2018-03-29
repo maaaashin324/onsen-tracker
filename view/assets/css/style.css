@@ -23,6 +23,15 @@
   text-decoration: none;
 }
 
+#mapFilterButton {
+  position: absolute;
+  top: 10%;
+  left: 10px;
+  float: left;
+  z-index: 1;
+  width: 92.78px;
+}
+
 .home-contents {
   margin-top: 50px;
 }
@@ -55,5 +64,15 @@
 @media screen and (max-width: 768px) {
   .home-contents {
     margin-top: 185px;
+  }
+  
+  #mapFilterButton {
+    position: absolute;
+    top: 0;
+    margin-top: 230px;
+    left: 10px;
+    float: left;
+    z-index: 1;
+    width: 92.78px;
   }
 }

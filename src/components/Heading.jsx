@@ -37,6 +37,8 @@ const Heading = ({ getOnsensDataWithFilter }) => {
             />
             <p className="district-paragraph" />
             <Button
+              bsSize="large"
+              bsStyle="success"
               className="district-button"
               value={eachDistrict.name}
               onClick={handleButton}
