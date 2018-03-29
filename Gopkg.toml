@@ -23,7 +23,7 @@
   unused-packages = true
 
 [metadata.heroku]
-  root-package = "github.com/maaaashin324/cc3-project.polyglottal"
+  root-package = "github.com/maaaashin324/onsen-tracker"
   go-version = "go1.10"
   install = [".", "./db/..."]
   ensure = "true"

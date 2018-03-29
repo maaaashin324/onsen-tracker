@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/kataras/iris"
-	CO "github.com/maaaashin324/cc3-project.polyglottal/config"
+	CO "github.com/maaaashin324/onsen-tracker/config"
 )
 
 // CreateOnsen function for POST method

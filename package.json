@@ -1,8 +1,8 @@
 {
-  "name": "cc3-project.polyglottal",
+  "name": "onsen-tracker",
   "version": "1.0.0",
   "main": "",
-  "repository": "https://github.com/maaaashin324/cc3-project.polyglottal.git",
+  "repository": "https://github.com/maaaashin324/onsen-tracker.git",
   "author": "maaaashin324 <mstk.shin@gmail.com>",
   "license": "MIT",
   "scripts": {

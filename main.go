@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	R "github.com/maaaashin324/cc3-project.polyglottal/routes"
+	R "github.com/maaaashin324/onsen-tracker/routes"
 
 	"github.com/kataras/iris"
 )

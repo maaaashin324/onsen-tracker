@@ -16,8 +16,8 @@ Node.js >= 9.5.0
 ## 1.Installing
 
 ```unix
-git clone https://github.com/maaaashin324/cc3-project.polyglottal.git
-cd cc3-project.polyglottal
+git clone https://github.com/maaaashin324/onsen-tracker.git
+cd onsen-tracker
 yarn install
 ```
 

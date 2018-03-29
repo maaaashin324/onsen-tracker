@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-pg/pg/orm"
 
-	CO "github.com/maaaashin324/cc3-project.polyglottal/config"
+	CO "github.com/maaaashin324/onsen-tracker/config"
 
 	"github.com/go-pg/migrations"
 )
