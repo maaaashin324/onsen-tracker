@@ -75,8 +75,8 @@ const japanData = {
     name: 'Japan',
     image: 'map-japan.png',
     center: {
-      lat: 38.4651934,
-      lng: 134.3899096,
+      lat: 35.6590242,
+      lng: 139.721786,
     },
     zoom: 6,
   },
