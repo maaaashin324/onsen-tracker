@@ -8,7 +8,7 @@ const MyNavbar = () => (
       <LinkContainer to="/">
         <Navbar.Brand>
           <p className="site-title">
-            <a href="/">Onsen Log</a>
+            <a href="/">Onsen Tracker</a>
           </p>
         </Navbar.Brand>
       </LinkContainer>
