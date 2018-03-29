@@ -74,8 +74,14 @@ const Register = ({
           </Col>
           <Col sm={6}>
             <FormControl componentClass="select" placeholder="Select district">
-              {Object.values(japanData).map(eachDistrict =>
-                <option value={eachDistrict.name}>{eachDistrict.name}</option>)}
+              {Object.values(japanData).map(eachDistrict => (
+                <option
+                  key={eachDistrict.name}
+                  value={eachDistrict.name}
+                >
+                  {eachDistrict.name}
+                </option>
+              ))}
             </FormControl>
           </Col>
         </FormGroup>
