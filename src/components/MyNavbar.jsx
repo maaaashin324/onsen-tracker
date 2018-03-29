@@ -7,7 +7,7 @@ const MyNavbar = () => (
     <Navbar.Header>
       <LinkContainer to="/">
         <Navbar.Brand>
-          <p className="site-title">
+          <p id="site-title">
             <a href="/">Onsen Tracker</a>
           </p>
         </Navbar.Brand>

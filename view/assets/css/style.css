@@ -1,9 +1,9 @@
-.site-title {
+#site-title {
   margin-bottom: 0;
   padding-top: 5px;
 }
 
-.site-title a::before {
+#site-title a::before {
   content: "";
   background: url("../image/redIcon/onsenIconRed.svg") no-repeat;
   width: 40px;
@@ -14,29 +14,29 @@
   vertical-align: middle;
 }
 
-.site-title a {
+#site-title a {
   color: #555;
   text-decoration: none;
 }
 
-.site-title:hover {
+#site-title:hover {
   text-decoration: none;
 }
 
 #mapFilterButton {
   position: absolute;
-  top: 10%;
-  left: 10px;
+  top: 12%;
+  left: 1%;
   float: left;
   z-index: 1;
   width: 92.78px;
 }
 
-.home-contents {
+#home-contents {
   margin-top: 50px;
 }
 
-.district-table {
+#district-table {
   margin-bottom: 100px;
 }
 
@@ -62,7 +62,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .home-contents {
+  #home-contents {
     margin-top: 185px;
   }
   

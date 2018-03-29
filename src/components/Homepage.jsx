@@ -14,7 +14,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="home-contents">
+    <div id="home-contents">
       <Button
         bsStyle="info"
         id="mapFilterButton"

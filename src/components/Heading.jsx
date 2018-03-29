@@ -20,7 +20,7 @@ const Heading = ({ getOnsensDataWithFilter }) => {
   };
 
   return (
-    <Grid className="district-table">
+    <Grid id="district-table">
       <Row>
         {Object.values(japanData).map(eachDistrict => (
           <Col
