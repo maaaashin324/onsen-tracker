@@ -7,12 +7,13 @@ const defaultState = {
 
 const onsenMap = (state = defaultState, action) => {
   switch (action.type) {
-    case 'GET_ONSEN': {
+    case 'FILTER_LOCATION': {
       const newState = Object.assign({}, state);
-      const newCenter = Object.assign({}, japanData[action.filter].center);
 
-      newState.zoom = japanData[action.filter].zoom;
+      newState.zoom = japanData[action.district].zoom;
+      const newCenter = Object.assign({}, japanData[action.district].center);
       newState.center = newCenter;
+
       return newState;
     }
     default: return state;

@@ -14,19 +14,12 @@ const getOnsensFail = response => ({
 const getOnsens = filter => dispatch => (async () => {
   const result = await fetchOnsenGet(filter);
 
-  if (result.onsens === null) result.onsens = [];
-
-  const onsens = result.onsens.map((eachOnsen) => {
-    const newObject = Object.assign({}, eachOnsen);
-    newObject.infoWindow = false;
-    return newObject;
-  });
-
   if (!result.response) {
     dispatch(getOnsensFail(result.error));
     return;
   }
-  dispatch(getOnsensSuccess(onsens, filter));
+  if (result.onsens === null) result.onsens = [];
+  dispatch(getOnsensSuccess(result.onsens, filter));
 })();
 
 export default getOnsens;

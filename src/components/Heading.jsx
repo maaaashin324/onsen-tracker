@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Grid, Row, Col } from 'react-bootstrap';
 import japanData from '../utils/japanData';
 
-const Heading = ({ getOnsensDataWithFilter }) => {
+const Heading = ({ activateFilterDistrict }) => {
   const scrollToTop = () => {
     window.scrollBy({
       top: -10000,
@@ -15,7 +15,7 @@ const Heading = ({ getOnsensDataWithFilter }) => {
   const handleButton = (e) => {
     e.preventDefault();
 
-    getOnsensDataWithFilter(e.target.value);
+    activateFilterDistrict(e.target.value);
     scrollToTop();
   };
 
@@ -54,7 +54,7 @@ const Heading = ({ getOnsensDataWithFilter }) => {
 };
 
 Heading.propTypes = {
-  getOnsensDataWithFilter: PropTypes.func.isRequired,
+  activateFilterDistrict: PropTypes.func.isRequired,
 };
 
 export default Heading;

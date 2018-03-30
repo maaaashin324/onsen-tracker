@@ -1,14 +1,8 @@
 const onsenAPI = '/api/onsens';
 
-const fetchOnsenGet = async (district) => {
+const fetchOnsenGet = async () => {
   try {
-    let url = onsenAPI;
-
-    if (district !== 'Japan') {
-      url += `?district=${district}`;
-    }
-
-    const response = await (await fetch(url, { method: 'GET' })).json();
+    const response = await (await fetch(onsenAPI, { method: 'GET' })).json();
 
     return {
       response: true,
