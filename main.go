@@ -3,33 +3,21 @@ package main
 import (
 	"os"
 
-	R "github.com/maaaashin324/onsen-tracker/routes"
-
-	"github.com/kataras/iris"
+	"github.com/labstack/echo/v4"
 )
 
-func main() {
-	port := os.Getenv("PORT")
+var port string
+
+func Init() {
+	port = os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
+}
 
-	app := iris.New()
-	app.Favicon("./view/assets/image/onsenIcon.ico")
-	app.StaticWeb("/", "./view")
+func main() {
+	e := echo.New()
+	e.File("/favicon.ico", "./view/assets/image/onsenIcon.ico")
+	e.File("/", "./view")
 
-	app.Get("/", func(ctx iris.Context) {
-		ctx.ServeFile("./view/index.html", false)
-	})
-
-	api := app.Party("/api")
-	{
-		api.Post("/onsens", R.CreateOnsen)
-		api.Get("/onsens", R.SelectOnsen)
-		api.Get("/onsens/:id", R.SelectOneOnsen)
-		api.Put("/onsens/:id", R.UpdateOnsen)
-		api.Delete("/onsens/:id", R.DeleteOnsen)
-	}
-
-	app.Run(iris.Addr(":" + port))
 }
