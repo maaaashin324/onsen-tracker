@@ -20,4 +20,5 @@ func main() {
 	e.File("/favicon.ico", "./view/assets/image/onsenIcon.ico")
 	e.File("/", "./view")
 
+	e.Logger.Fatal(e.Start(":" + port))
 }

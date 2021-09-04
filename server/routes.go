@@ -3,11 +3,11 @@ package server
 import "github.com/labstack/echo/v4"
 
 func CreateRoutes(e *echo.Echo) {
-	apiGroup := e.Group("/api")
+	apiGroup := e.Group("/api/onsens")
 
-	apiGroup.POST("/onsens", CreateOnsen)
-	apiGroup.GET("/onsens", SelectOnsen)
-	apiGroup.GET("/onsens/:id", SelectOneOnsen)
-	apiGroup.PUT("/onsens/:id", UpdateOnsen)
-	apiGroup.DELETE("/onsens/:id", DeleteOnsen)
+	apiGroup.POST("/", CreateOnsen)
+	apiGroup.GET("/", SelectOnsen)
+	apiGroup.GET("/:id", SelectOneOnsen)
+	apiGroup.PUT("/:id", UpdateOnsen)
+	apiGroup.DELETE("/:id", DeleteOnsen)
 }

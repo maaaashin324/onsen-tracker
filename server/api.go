@@ -1,120 +1,105 @@
 package server
 
 import (
-	"github.com/kataras/iris"
-	CO "github.com/maaaashin324/onsen-tracker/config"
+	"errors"
+	"net/http"
+
+	"github.com/imdario/mergo"
+	"github.com/labstack/echo/v4"
+	"github.com/maaaashin324/onsen-tracker/database"
+	"github.com/maaaashin324/onsen-tracker/models"
+	"gorm.io/gorm"
 )
 
 // CreateOnsen function for POST method
-func CreateOnsen(ctx iris.Context) {
-	var onsen CO.Onsen
-
-	if err := ctx.ReadJSON(&onsen); err != nil {
-		CO.Err(err)
+func CreateOnsen(ctx echo.Context) (err error) {
+	var onsen models.Onsen
+	if err = ctx.Bind(onsen); err != nil {
+		return err
 	}
 
-	db := CO.DB()
-	err := db.Insert(&onsen)
-	CO.Err(err)
-
-	resp := map[string]interface{}{
-		"postData": onsen,
-		"result":   true,
+	db := database.DBManager()
+	result := db.Create(&onsen)
+	if result.Error != nil {
+		return result.Error
 	}
-	json(ctx, resp)
+	return ctx.JSON(http.StatusOK, onsen)
 }
 
 // SelectOnsen func for GET method
-func SelectOnsen(ctx iris.Context) {
-	districtParam := ctx.URLParam("district")
+func SelectOnsen(ctx echo.Context) (err error) {
+	districtParam := ctx.QueryParam("district")
 
-	var onsens []CO.Onsen
-	var err error
+	var onsens []models.Onsen
 
-	db := CO.DB()
+	db := database.DBManager()
+	var result *gorm.DB
 	if districtParam == "" {
-		err = db.Model(&onsens).Order("id").Select()
+		result = db.Find(&onsens).Order("id")
 	} else {
-		err = db.Model(&onsens).Where("district = ?", districtParam).Order("id").Select()
+		result = db.Find(&onsens).Where("district = ?", districtParam).Order("id")
 	}
-	CO.Err(err)
+	if result.Error != nil {
+		return result.Error
+	}
 
-	resp := map[string]interface{}{
-		"data":   onsens,
-		"result": true,
-	}
-	json(ctx, resp)
+	return ctx.JSON(http.StatusOK, onsens)
 }
 
 // SelectOneOnsen func for GET with id
-func SelectOneOnsen(ctx iris.Context) {
-	_ID, paramsErr := ctx.Params().GetInt("id")
-	CO.Err(paramsErr)
-
-	onsen := CO.Onsen{
-		ID: _ID,
+func SelectOneOnsen(ctx echo.Context) (err error) {
+	id := ctx.Param("id")
+	if id == "" {
+		return errors.New("id is missing")
 	}
 
-	db := CO.DB()
-	selectErr := db.Select(&onsen)
-	CO.Err(selectErr)
-
-	resp := map[string]interface{}{
-		"data":   onsen,
-		"result": true,
+	var onsen models.Onsen
+	db := database.DBManager()
+	if result := db.First(&onsen, id); result.Error != nil {
+		return result.Error
 	}
-	json(ctx, resp)
+
+	return ctx.JSON(http.StatusOK, onsen)
 }
 
 // UpdateOnsen func for PUT with id
-func UpdateOnsen(ctx iris.Context) {
-	_ID, paramsErr := ctx.Params().GetInt("id")
-	CO.Err(paramsErr)
-
-	onsen := CO.Onsen{
-		ID: _ID,
+func UpdateOnsen(ctx echo.Context) (err error) {
+	id := ctx.Param("id")
+	if id == "" {
+		return errors.New("id is missing")
 	}
-	db := CO.DB()
-	selectErr := db.Select(&onsen)
-	CO.Err(selectErr)
 
-	_name := ctx.PostValueTrim("name")
-	_address := ctx.PostValueTrim("address")
-	_rating, ratingErr := ctx.PostValueInt("rating")
-	CO.Err(ratingErr)
-
-	onsen.Name = _name
-	onsen.Address = _address
-	onsen.Rating = _rating
-
-	updateErr := db.Update(&onsen)
-	CO.Err(updateErr)
-
-	checkSelectErr := db.Select(&onsen)
-	CO.Err(checkSelectErr)
-
-	resp := map[string]interface{}{
-		"data":   onsen,
-		"result": true,
+	var currentOnsen models.Onsen
+	db := database.DBManager()
+	if result := db.First(&currentOnsen, id); result.Error != nil {
+		return result.Error
 	}
-	json(ctx, resp)
+
+	var updatedOnsen models.Onsen
+	if err = ctx.Bind(&updatedOnsen); err != nil {
+		return err
+	}
+
+	if err = mergo.Merge(&currentOnsen, updatedOnsen, mergo.WithOverride); err != nil {
+		return err
+	}
+
+	if result := db.Save(&currentOnsen); result.Error != nil {
+		return result.Error
+	}
+
+	return ctx.JSON(http.StatusOK, currentOnsen)
 }
 
 // DeleteOnsen func for DELETE method
-func DeleteOnsen(ctx iris.Context) {
-	_ID, paramsErr := ctx.Params().GetInt("id")
-	CO.Err(paramsErr)
-
-	onsen := CO.Onsen{
-		ID: _ID,
+func DeleteOnsen(ctx echo.Context) (err error) {
+	id := ctx.Param("id")
+	if id == "" {
+		return errors.New("id is missing")
 	}
 
-	db := CO.DB()
-	deleteErr := db.Delete(&onsen)
-	CO.Err(deleteErr)
+	db := database.DBManager()
+	db.Delete(&models.Onsen{}, id)
 
-	resp := map[string]interface{}{
-		"result": true,
-	}
-	json(ctx, resp)
+	return ctx.JSON(http.StatusOK, nil)
 }

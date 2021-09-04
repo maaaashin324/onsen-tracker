@@ -1,37 +1,23 @@
-package config
+package database
 
 import (
 	"os"
 
-	"github.com/go-pg/pg"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
-// DB function gives you database connection
-func DB() *pg.DB {
-	var _Addr string
-	var _Database string
-	var _Password string
-	var _User string
+var db *gorm.DB
 
-	if os.Getenv("DATABASE_URL") != "" {
-		options, getOptionErr := pg.ParseURL(os.Getenv("DATABASE_URL"))
-		Err(getOptionErr)
-		_Addr = options.Addr
-		_Database = options.Database
-		_Password = options.Password
-		_User = options.User
-	} else {
-		_Addr = "localhost:5432"
-		_Database = "onsen"
-		_Password = ""
-		_User = "postgres"
+func Init() {
+	dsn := os.Getenv("DSN")
+	dbConnection, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	if err != nil {
+		panic("DATABASE CONNECTION FAILED")
 	}
+	db = dbConnection
+}
 
-	db := pg.Connect(&pg.Options{
-		Addr:     _Addr,
-		Database: _Database,
-		Password: _Password,
-		User:     _User,
-	})
+func DBManager() *gorm.DB {
 	return db
 }
